@@ -30,7 +30,7 @@ class Hiera
 
         Hiera.debug("Looking up #{key} in YAML+ERB backend")
 
-        Backend.datasourcefiles(:yamlerb, scope, "yaml.erb", order_override) do |source, erbfile|
+        Backend.datasourcefiles(:yamlerb, scope, "yaml", order_override) do |source, erbfile|
           data = @cache.read_file(erbfile, Hash) do |code|
             wrapper = ErbWrapper.new(scope, code)
             begin
